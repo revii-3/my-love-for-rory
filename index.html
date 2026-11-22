@@ -3,27 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>For My Dearest Rory 💕🌸</title>
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <title>For My Dearest Rory</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: linear-gradient(135deg, #ffb7c5 0%, #ffc8d6 50%, #ff9eb5 100%); min-height: 100vh; font-family: 'Quicksand', sans-serif; overflow-x: hidden; position: relative; padding: 70px 16px 50px; display: flex; flex-direction: column; align-items: center; }
+    body {
+      background: linear-gradient(135deg, #ffb7c5 0%, #ffc8d6 50%, #ff9eb5 100%);
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-x: hidden;
+      position: relative;
+      padding: 70px 16px 50px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     #snowCanvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
-    #musicBadge { position: fixed; top: 16px; background: rgba(255, 255, 255, 0.32); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.65); color: #ffffff; padding: 9px 20px; border-radius: 50px; font-size: 13px; font-weight: 700; cursor: pointer; z-index: 10; box-shadow: 0 4px 15px rgba(214, 51, 108, 0.18); text-shadow: 0 1px 4px rgba(180, 40, 90, 0.45); }
-    .scrapbook-layout { display: flex; justify-content: center; align-items: flex-start; gap: 24px; max-width: 1220px; width: 100%; position: relative; z-index: 2; }
+    #musicBadge {
+      position: fixed; top: 16px;
+      background: rgba(255, 255, 255, 0.32);
+      border: 1px solid rgba(255, 255, 255, 0.65);
+      color: #ffffff; padding: 9px 20px; border-radius: 50px;
+      font-size: 13px; font-weight: 700; cursor: pointer; z-index: 10;
+      box-shadow: 0 4px 15px rgba(214, 51, 108, 0.18);
+      text-shadow: 0 1px 4px rgba(180, 40, 90, 0.45);
+    }
+    .scrapbook-layout {
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: 24px; max-width: 1220px; width: 100%;
+      position: relative; z-index: 2;
+    }
     .photo-column { display: flex; flex-direction: column; gap: 18px; width: 190px; flex-shrink: 0; }
-    .polaroid { background: #ffffff; padding: 9px 9px 22px 9px; border-radius: 8px; box-shadow: 0 10px 25px rgba(180, 40, 90, 0.18); text-align: center; transition: transform 0.25s ease; }
+    .polaroid {
+      background: #ffffff; padding: 9px 9px 22px 9px; border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(180, 40, 90, 0.18);
+      text-align: center; transition: transform 0.25s ease;
+    }
     .polaroid:nth-child(odd) { transform: rotate(-3deg); }
     .polaroid:nth-child(even) { transform: rotate(3deg); }
     .polaroid:hover { transform: scale(1.05) rotate(0deg); }
-    .polaroid img { width: 100%; height: 155px; object-fit: cover; border-radius: 4px; background-color: #ffe3ec; display: block; }
-    .polaroid span { display: block; margin-top: 7px; font-family: 'Patrick Hand', cursive; font-size: 15px; color: #d6336c; line-height: 1.25; }
-    .notebook-paper { flex: 1; max-width: 620px; background-color: #fffdf9; border-radius: 12px; box-shadow: 0 18px 40px rgba(180, 40, 90, 0.22); position: relative; padding: 44px 36px 48px 64px; background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #ffd6e0 34px); line-height: 34px; overflow: hidden; }
-    .notebook-paper::before { content: ''; position: absolute; top: 0; bottom: 0; left: 46px; width: 2px; background-color: #ff8fa3; }
-    .washi-tape { position: absolute; top: -10px; left: 50%; transform: translateX(-50%) rotate(-2deg); width: 140px; height: 28px; background: rgba(255, 143, 163, 0.55); border-left: 2px dashed rgba(255, 255, 255, 0.7); border-right: 2px dashed rgba(255, 255, 255, 0.7); z-index: 3; }
-    .letter-header { font-family: 'Quicksand', sans-serif; font-size: 26px; font-weight: 700; color: #d6336c; margin-bottom: 14px; line-height: 40px; }
-    .letter-body { font-family: 'Quicksand', sans-serif; font-size: 16px; font-weight: 500; color: #4a3b42; line-height: 34px; white-space: pre-line; }
-    .letter-signoff { font-family: 'Quicksand', sans-serif; font-size: 17px; font-weight: 700; color: #d6336c; margin-top: 24px; line-height: 34px; text-align: right; white-space: pre-line; }
+    .polaroid img {
+      width: 100%; height: 155px; object-fit: cover; border-radius: 4px;
+      background-color: #ffe3ec; display: block;
+    }
+    .polaroid span {
+      display: block; margin-top: 7px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 14px; color: #d6336c; line-height: 1.3;
+    }
+    .notebook-paper {
+      flex: 1; max-width: 620px; background-color: #fffdf9;
+      border-radius: 12px; box-shadow: 0 18px 40px rgba(180, 40, 90, 0.22);
+      position: relative; padding: 44px 36px 48px 64px;
+      background-image: repeating-linear-gradient(to bottom, transparent 0px, transparent 33px, #ffd6e0 34px);
+      line-height: 34px; overflow: hidden;
+    }
+    .notebook-paper::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 46px;
+      width: 2px; background-color: #ff8fa3;
+    }
+    .washi-tape {
+      position: absolute; top: -10px; left: 50%;
+      transform: translateX(-50%) rotate(-2deg);
+      width: 140px; height: 28px; background: rgba(255, 143, 163, 0.55);
+      border-left: 2px dashed rgba(255, 255, 255, 0.7);
+      border-right: 2px dashed rgba(255, 255, 255, 0.7);
+      z-index: 3;
+    }
+    .letter-header {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 24px; font-weight: 700; color: #d6336c;
+      margin-bottom: 14px; line-height: 40px;
+    }
+    .letter-body {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px; color: #4a3b42; line-height: 34px;
+      white-space: pre-line;
+    }
+    .letter-signoff {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 16px; font-weight: 700; color: #d6336c;
+      margin-top: 24px; line-height: 34px; text-align: right;
+      white-space: pre-line;
+    }
     @media (max-width: 900px) {
       .scrapbook-layout { flex-direction: column; align-items: center; }
       .photo-column { display: grid; grid-template-columns: repeat(2, 1fr); width: 100%; max-width: 420px; gap: 14px; }
@@ -31,12 +92,91 @@
       .polaroid img { height: 145px; }
       .notebook-paper { width: 100%; padding: 36px 20px 40px 46px; }
       .notebook-paper::before { left: 32px; }
-      .letter-body { font-size: 15px; }
     }
   </style>
 </head>
 <body onclick="startMusic()">
-  <div id="musicBadge">🎵 Tap anywhere for Lover Is a Day - Cuco</div>
+  <div id="musicBadge">Tap anywhere for Lover Is a Day - Cuco</div>
   <div id="ytPlayer" style="position: fixed; width: 0; height: 0; opacity: 0; pointer-events: none;"></div>
   <canvas id="snowCanvas"></canvas>
-  <div 
+
+  <div class="scrapbook-layout">
+    <div class="photo-column">
+      <div class="polaroid"><img src="illit1.jpg" alt="Photo 1" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>Some people</span></div>
+      <div class="polaroid"><img src="illit2.jpg" alt="Photo 2" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>walk into your life</span></div>
+      <div class="polaroid"><img src="illit3.jpg" alt="Photo 3" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>and quietly</span></div>
+      <div class="polaroid"><img src="illit4.jpg" alt="Photo 4" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>make everything</span></div>
+    </div>
+
+    <div class="notebook-paper">
+      <div class="washi-tape"></div>
+      <div class="letter-header">To my dearest Rory,</div>
+      <div class="letter-body">I wanted to make this little page just for you so that whenever you look at it, you never forget how much I love and appreciate you.
+
+Honestly, some of my favorite memories ever are just the simple things we did together. I loved playing Rhythm Hive with you, and I loved being on call with you for hours every single day. Even when we weren't doing anything big, just hearing your voice and listening to you yap nonstop about all the things you love was always the best part of my day. I could listen to you talk about your interests forever and never get tired of it.
+
+You are such an amazing person, Rory. Your heart, your laugh, your energy - everything about who you are means so much to me. You made my days so much brighter just by being yourself.
+
+I'm right here with you through everything, and you never have to go through anything alone. Thank you for every call, every game, every laugh, and for letting me love you. I appreciate you more than words could ever explain, today and always.</div>
+      <div class="letter-signoff">forever yours, with all my heart.
+- Johnny/revi</div>
+    </div>
+
+    <div class="photo-column">
+      <div class="polaroid"><img src="sophia1.jpg" alt="Photo 5" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>feel softer and</span></div>
+      <div class="polaroid"><img src="sophia2.jpg" alt="Photo 6" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>warmer and</span></div>
+      <div class="polaroid"><img src="sophia3.jpg" alt="Photo 7" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>a little more like home</span></div>
+      <div class="polaroid"><img src="sophia4.jpg" alt="Photo 8" onerror="this.src='https://placehold.co/300x400/ffe3ec/d6336c?text=%E2%99%A1'"><span>- that's you for me.</span></div>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    var player, musicStarted = false;
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('ytPlayer', {
+        height: '0', width: '0', videoId: '9wiEM0s4a3c',
+        playerVars: { autoplay: 0, loop: 1, playlist: '9wiEM0s4a3c' }
+      });
+    }
+    function startMusic() {
+      if (!musicStarted && player && typeof player.playVideo === 'function') {
+        player.playVideo();
+        musicStarted = true;
+        document.getElementById('musicBadge').innerText = 'Now Playing: Lover Is a Day - Cuco';
+      }
+    }
+    var canvas = document.getElementById('snowCanvas'), ctx = canvas.getContext('2d');
+    var width = canvas.width = window.innerWidth, height = canvas.height = window.innerHeight;
+    window.addEventListener('resize', function () {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+    var snowflakes = [];
+    for (var i = 0; i < 95; i++) {
+      snowflakes.push({
+        x: Math.random() * width, y: Math.random() * height,
+        r: Math.random() * 3.5 + 1.5, speedY: Math.random() * 1.4 + 0.6,
+        speedX: (Math.random() - 0.5) * 0.8, opacity: Math.random() * 0.6 + 0.4
+      });
+    }
+    function drawSnow() {
+      ctx.clearRect(0, 0, width, height);
+      for (var i = 0; i < snowflakes.length; i++) {
+        var f = snowflakes[i];
+        ctx.beginPath();
+        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255, 255, 255, ' + f.opacity + ')';
+        ctx.shadowBlur = 6; ctx.shadowColor = '#ffffff';
+        ctx.fill();
+        f.y += f.speedY; f.x += f.speedX;
+        if (f.y > height) { f.y = -5; f.x = Math.random() * width; }
+        if (f.x > width) f.x = 0;
+        if (f.x < 0) f.x = width;
+      }
+      requestAnimationFrame(drawSnow);
+    }
+    drawSnow();
+  </script>
+</body>
+</html>
